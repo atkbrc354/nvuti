@@ -38,7 +38,9 @@ function select_team(team, hiden) {
 	$("#" + hiden + "select").css('border', '1px solid #d2dde9');
 }
 
+
 	
+
 	function simulateDiceRoll(randomNum) {
 	if (randomNum > 50) {
 	$('#nums').css('color', 'green');
@@ -49,11 +51,11 @@ function select_team(team, hiden) {
 	$('#nums').html(randomNum);
 	
 	var newBalance = 100; // Adjust this value as needed
-	updateBalance(0, newBalance);
+	updateProfit(0, newBalance);
 	}
 	
-	function updateBalance( newBalance) {
-	$('#userBalance').attr('myBalance', newBalance);
+	function updateProfit(newBalance) {
+	$('#balance').attr('balance', newBalance);
 	// Additional UI updates if necessary
 	}
 	
@@ -216,3 +218,4 @@ function build(blue_cur) {
 	var red = d3.arc().innerRadius(155).outerRadius(180).startAngle(2 * Math.PI * blue_cur).endAngle(2 * Math.PI);
 	$("#red").attr('d', red());
 }
+
