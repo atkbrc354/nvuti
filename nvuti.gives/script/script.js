@@ -10,7 +10,7 @@
      "ontouchstart" in document.documentElement || a.addClass("no-touch");
      var n = i();
      t.on("resize", function () {
-         n = i()
+         n = i();
      });
      var l = e(".is-sticky"),
          r = e(".topbar"),

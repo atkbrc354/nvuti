@@ -1,59 +1,10 @@
 var color = "";
 
 function betdice() {
-	$('#betDice').html('Кидаем кости..');
-	$('#betDice').prop('disabled', true);
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {},
-		data: {
-			type: "dice",
-			betsize: $('#betSizeDice').val(),
-			celwin: $('#r1').val(),
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "fatal") {
-				$('#betDice').html('Сделать ставку <i class="fas fa-coins"></i>');
-				$('#betDice').prop('disabled', false);
-				$.wnoty({
-					position: 'top-right',
-					type: 'error',
-					message: obj.error
-				});
-				return false;
-			}
-			if(obj.success == "success") {
-				$('.index__home__indicator__inner').show();
-				$('.index__home__indicator__inner__number').animate({
-					'left': $('#r1').width() / 100 * obj.num + 'px'
-				});
-				$('#nums').css('color', 'green');
-				$('#nums').html(obj.num);
-				setTimeout(function() {
-					$('#userBalance').attr('myBalance', obj.new_balance);
-					updateBalance(obj.balance, obj.new_balance);
-					$('#betDice').html('Сделать ставку <i class="fas fa-coins"></i>');
-					$('#betDice').prop('disabled', false);
-				}, 700);
-			} else {
-				$('.index__home__indicator__inner').show();
-				$('.index__home__indicator__inner__number').animate({
-					'left': $('#r1').width() / 100 * obj.num + 'px'
-				});
-				$('#nums').css('color', 'red');
-				$('#nums').html(obj.num);
-				setTimeout(function() {
-					$('#userBalance').attr('myBalance', obj.new_balance);
-					updateBalance(obj.balance, obj.new_balance);
-					$('#betDice').html('Сделать ставку <i class="fas fa-coins"></i>');
-					$('#betDice').prop('disabled', false);
-				}, 700);
-			}
-		}
-	});
-}
+	// Simulate dice roll without server interaction
+	var randomNum = Math.floor(Math.random() * 100) + 1;
+	simulateDiceRoll(randomNum);
+	}
 
 function fun1() {
 	var val = $('.range').val();
@@ -86,6 +37,50 @@ function select_team(team, hiden) {
 	$("#" + color + "select").css('border', '1px solid #0b6cee');
 	$("#" + hiden + "select").css('border', '1px solid #d2dde9');
 }
+
+	
+	function simulateDiceRoll(randomNum) {
+	if (randomNum > 50) {
+	$('#nums').css('color', 'green');
+	} else {
+	$('#nums').css('color', 'red');
+	}
+	
+	$('#nums').html(randomNum);
+	
+	var newBalance = 100; // Adjust this value as needed
+	updateBalance(0, newBalance);
+	}
+	
+	function updateBalance( newBalance) {
+	$('#userBalance').attr('myBalance', newBalance);
+	// Additional UI updates if necessary
+	}
+	
+	function build(blue_cur) {
+	// Simplified UI update for the build function
+	// ...
+	}
+	
+	// Simulate other functions similarly...
+	
+	// Example of simplified functions without server interactions
+	
+	// Note: removeWithdrawUser and createwithdraw functions are omitted due to the absence of server-side processing.
+	
+	// Example of simplified HTML update for success/failure messages
+	function showSuccessMessage(message) {
+	$("#success_message").show().html(message);
+	}
+	
+	function showErrorMessage(message) {
+	$("#error_message").show().html(message);
+	}
+	
+	// Trigger betdice function on page load
+	$(document).ready(function() {
+	betdice();
+	});
 
 function profitbattle() {
 	$('#ProfitBattle').html(((100 / $('#BetPerBattle').val()) * $('#BetSizeBattle').val()).toFixed(2));
@@ -220,325 +215,4 @@ function build(blue_cur) {
 	$("#blue").attr('d', blue());
 	var red = d3.arc().innerRadius(155).outerRadius(180).startAngle(2 * Math.PI * blue_cur).endAngle(2 * Math.PI);
 	$("#red").attr('d', red());
-}
-
-function deposit_default() {
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$('#depositButton').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$("#error_deposit").hide();
-		},
-		data: {
-			type: "deposit",
-			sum: $("#depositSize").val()
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$('#depositButton').html('Далее');
-				window.location.href = obj.locations;
-				return
-			} else {
-				$('#depositButton').html('Далее');
-				$("#error_deposit").show();
-				$("#error_deposit").html(obj.error);
-			}
-		}
-	});
-}
-
-function continue_reg() {
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$('#contbutton').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$("#error_registerc").hide();
-		},
-		data: {
-			type: "continue_reg",
-			login: $("#updatelog").val(),
-			pass: $("#updatepass").val()
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$('#contbutton').html('Продолжить');
-				location.reload(true);
-				return
-			} else {
-				$('#contbutton').html('Продолжить');
-				$("#error_registerc").show();
-				$("#error_registerc").html(obj.error);
-			}
-		}
-	});
-}
-
-function register_default() {
-	if($('#userRegsiter').val() == '') {
-		$('#error_register').css('display', 'block');
-		return $("#error_register").html("Заполните все поля");
-	}
-	if($('#userPassRegister').val() == '') {
-		$('#error_register').css('display', 'block');
-		return $("#error_register").html("Заполните все поля");
-	}
-	if($('#userPassRegister1').val() == '') {
-		$('#error_register').css('display', 'block');
-		return $("#error_register").html("Заполните все поля");
-	}
-	if(!$('#CheckBox_9').prop('checked')) {
-		$('#error_register').css('display', 'block');
-		return $('#error_register').html('Соглашение');
-	}
-	if ($('#g-recaptcha-response-1').val() == '') {
-		$('#error_register').css('display', 'block');
-		return $('#error_register').html('Пройдите капчу');
-	}
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-            $('#butRegister').html('<div class="loader" style="height:23px;width:23px"></div>').addClass('disabled');
-            $('#error_register').hide();
-        },
-		data: {
-			type: "registration",
-			login: $("#userRegsiter").val(),
-			rc: $('#g-recaptcha-response-1').val(),
-			pass: $("#userPassRegister").val(),
-			repeatpass: $("#userPassRegister1").val()
-		},
-		success: function(data) {
-		    grecaptcha.reset(1);
-		    $('#butRegister').html('Зарегистрироваться').removeClass('disabled');
-            $('#error_register').hide();
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				location.reload(true);
-				return
-			} else {
-			    grecaptcha.reset(1);
-				$('#error_register').html(obj.error);
-                $('#error_register').show();
-			}
-		}
-	});
-}
-
-function login_default() {
-	if ($('#g-recaptcha-response').val() == '') {
-		$('#error_enter').css('display', 'block');
-		return $('#error_enter').html('Пройдите капчу');
-	}
-	if($('#userLogin').val() == '') {
-		$('#error_enter').css('display', 'block');
-		return $("#error_enter").html("Введите логин");
-	}
-	if($('#userPass').val() == '') {
-		$('#error_enter').css('display', 'block');
-		return $("#error_enter").html("Введите пароль");
-	}
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-            $('#butEnter').html('<div class="loader" style="height:23px;width:23px"></div>');
-            $('#butEnter').addClass('disabled');
-            $('#error_enter').hide();
-        },
-		data: {
-			type: "login",
-			login: $("#userLogin").val(),
-			rc: $('#g-recaptcha-response').val(),
-			pass: $("#userPass").val()
-		},
-		success: function(data) {
-		    grecaptcha.reset();
-		    $('#butEnter').html('Войти');
-            $('#butEnter').removeClass('disabled');
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				location.reload(true);
-				return
-			} else {
-			    grecaptcha.reset();
-				$('#error_enter').html(obj.error);
-                $('#error_enter').css('display', 'block');
-			}
-		}
-	});
-}
-
-function removeWithdrawUser(deletew) {
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {},
-		data: {
-			type: "deletewithdraw",
-			del: deletew
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$("#withdrawT").load("index.php #withdrawT");
-				$('#userBalance').attr('myBalance', obj.new_balance);
-				updateBalance(obj.balance, obj.new_balance);
-				return
-			} else {
-				$("#withdrawT").load("index.php #withdrawT");
-			}
-		}
-	});
-}
-
-function createwithdraw() {
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$('#withB').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$("#succes_withdraw").hide();
-			$("#error_withdraw").hide();
-		},
-		data: {
-			type: "withdrawuser",
-			system: $('#hide_search').val(),
-			wallet: $('#walletNumber').val(),
-			sum: $('#WithdrawSize').val()
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$("#withdrawT").load("index.php #withdrawT");
-				$("#withB").html('Вывести');
-				$("#succes_withdraw").show();
-				$("#succes_withdraw").html("Выплата успешно создана");
-				$('#userBalance').attr('myBalance', obj.new_balance);
-				updateBalance(obj.balance, obj.new_balance);
-				return
-			} else {
-				$("#withB").html('Вывести');
-				$("#error_withdraw").show();
-				$("#error_withdraw").html(obj.error);
-			}
-		}
-	});
-}
-
-/* function createpromo() {
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$('#createbutton').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$("#succes_promocreate").hide();
-			$("#error_promocreate").hide();
-		},
-		data: {
-			type: "createPromoUser",
-			createname: $('#createname').val(),
-			createsum: $('#createsum').val(),
-			createactive: $('#createactive').val()
-		},
-		success: function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$('#createbutton').html('Создать');
-				$("#succes_promocreate").show();
-				$("#succes_promocreate").html("Промокод создан");
-				$('#userBalance').attr('myBalance', obj.new_balance);
-				updateBalance(obj.balance, obj.new_balance);
-				return
-			} else {
-				$('#createbutton').html('Создать');
-				$("#error_promocreate").show();
-				$("#error_promocreate").html(obj.error);
-			}
-		}
-	});
-} */
-
-function activepromo() {
-	/*  setTimeout(function() {
-	    $("#error_promoactive").fadeOut();
-	    $("#succes_promoactive").fadeOut(); 
-	  }, 5000); */
-	if($('#promoactive').val() == '') {
-		$("#error_promoactive").show();
-		return $("#error_promoactive").html("Введите промокод");
-	}
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$('#activebutton').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$("#succes_promoactive").hide();
-			$("#error_promoactive").hide();
-			$('#activebutton').addClass("disabled");
-			$("#activebutton").attr("style", "pointer-events: none")
-		},
-		data: {
-			type: "activePromo",
-			promoactive: $('#promoactive').val()
-		},
-		success: function(data) {
-		    $("#activebutton").removeAttr("style", "pointer-events: none")
-		    $('#activebutton').removeClass("disabled");
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$('#activebutton').html('Активировать');
-				$("#succes_promoactive").show();
-				$("#succes_promoactive").html("Промокод активирован");
-				$('#userBalance').attr('myBalance', obj.new_balance);
-				updateBalance(obj.balance, obj.new_balance);
-				return
-			} else {
-				$('#activebutton').html('Активировать');
-				$("#error_promoactive").show();
-				$("#error_promoactive").html(obj.error);
-			}
-		}
-	});
-}
-
-function getDaily() {
-    if ($('#g-recaptcha-response').val() == ''){
-		$('#error_promo').show();
-		return $('#error_promo').html('Пройдите капчу');
-	}
-	$.ajax({
-		type: 'POST',
-		url: '../action.php',
-		beforeSend: function() {
-			$("#succes_promo").hide();
-			$("#error_promo").hide();
-			$('#butPromo').html('<div class="loader" style="height:23px;width:23px"></div>');
-			$('#butPromo').addClass("disabled");
-			$("#butPromo").attr("style", "pointer-events: none;box-shadow: 0 5px 23px 0 rgba(0, 125, 255, 0.3);color:#fff;margin-top: 10px;")
-		},
-		data: {
-			type: "bonus"
-		},
-		success: function(data) {
-		    $('#butPromo').html('Получить');
-			$('#butPromo').removeClass("disabled");
-			$("#butPromo").removeAttr("style", "color:#fff;")
-			var obj = jQuery.parseJSON(data);
-			if(obj.success == "success") {
-				$("#succes_promo").show();
-				$("#succes_promo").html("Получено в раздаче <b>" + obj.bonussize + "</b>");
-				$('#userBalance').attr('myBalance', obj.new_balance);
-				updateBalance(obj.balance, obj.new_balance);
-				return
-			} else {
-				$("#error_promo").show();
-				$("#error_promo").html(obj.error);
-			}
-		}
-	});
 }
