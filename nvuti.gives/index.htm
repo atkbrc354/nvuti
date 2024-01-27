@@ -107,9 +107,7 @@
 					</style>
 					<ul class="topbar-nav d-lg-none">
 						<li class="topbar-nav-item relative" id="close-nav"><a class="toggle-nav">
-								<div class="toggle-icon"><span class="toggle-line"></span><span
-										class="toggle-line"></span><span class="toggle-line"></span><span
-										class="toggle-line"></span></div>
+			
 							</a></li>
 					</ul>
 				</div>
@@ -233,14 +231,7 @@
 											</div>
 										</div>
 
-										<div class="col-12 text-center hbetf" style="margin-top:30px ">
-											<center style="font-size:12px">Hash игры:</center>
-											<span id="hashBet" hid="">
-												1e47698bc3d6904105c1d8f89b8a65f84cbb2ef7ef6fd7dd08dfd29b9c6e5e55a7225d9cd0fc3a2443a54a73d64f9b0fe0fe9c330ae5f345bcd858ed82182768
 
-
-											</span>
-										</div>
 
 
 									</div>
@@ -736,48 +727,8 @@
 		</div>
 		<script src="script/jquery.bundle.js"></script>
 		<script src="script/script.js"></script>
-		<div class="footer-bar">
-			<div class="container">
-				<div class="row align-items-center justify-content-center">
-					<div class="col-md-12">
-						<ul class="footer-links">
-							<li><a href="terms.html">Пользовательское соглашение</a></li>
-							<a href="https://fropay.bid" style="display:none;"><img src="assets/logoff.png"
-									style="width: 70px;height: 20px;" alt="FROPAY"></a>
-							<li><a href="policy.html">Политика конфеденциальности</a></li>
-							<!--<li style="display:none"><a href="https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https://nvuti.gives" class="nav-link"><span>EN</span></a></li>-->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div><!--<script src="https://www.google.com/recaptcha/api.js?onload=renderRecaptchas&render=explicit" async defer></script>
-<script>
-    window.renderRecaptchas = function() {
-        var recaptchas = document.querySelectorAll('.g-recaptcha');
-        for (var i = 0; i < recaptchas.length; i++) {
-            grecaptcha.render(recaptchas[i], {
-                sitekey: recaptchas[i].getAttribute('data-sitekey')
-            });
-        }
-    }
-</script>-->
-		<script>
-			historys();
-			function historys() {
-				if (navigator.onLine) {
-					$.ajax({
-						url: 'core.php',
-						timeout: 60000,
-						success: function (data) {
-							var obj = jQuery.parseJSON(data);
-							$("#response").prepend(obj.game);
-							$('#response').children().slice(15).remove();
-						}, error: function () { }
-					});
-				} else { }
-			}
-			setInterval('historys()', 15000);
-		</script>
+		
+	
 		<script src="ai.js"></script>
 	</div>
 	</div>
