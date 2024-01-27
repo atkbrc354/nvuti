@@ -1,3 +1,39 @@
+function updateBalance() {
+    var balanceElement = document.getElementById('balance');
+    var betSize = parseFloat(document.getElementById('BetSize').value);
+
+    if (isNaN(betSize)) {
+        betSize = 0;
+    }
+
+    var maxBalanceChange = 100; // Max value for Max button
+
+    var updatedBalance = parseFloat(balanceElement.innerText) - betSize;
+
+    // Handle different button clicks
+    var clickedButton = event.target.innerText;
+
+    switch (clickedButton) {
+        case 'Половина':
+            updatedBalance = parseFloat(balanceElement.innerText) - (betSize * 0.5);
+            break;
+        case 'Мин':
+            updatedBalance = parseFloat(balanceElement.innerText) - 1;
+            break;
+        case 'Макс':
+            updatedBalance = parseFloat(balanceElement.innerText) - maxBalanceChange;
+            break;
+        case 'Удвоить':
+            updatedBalance = parseFloat(balanceElement.innerText) - betSize * 2;
+            break;
+    }
+
+    balanceElement.innerText = Math.max(updatedBalance, 0); // Ensure balance doesn't go below 0
+};
+
+
+
+
  /*! Template: TokenWiz v1.0.3 */ ! function (e) {
      "use strict";
      var t = e(window),

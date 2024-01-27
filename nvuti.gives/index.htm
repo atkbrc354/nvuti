@@ -7,9 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta content="Nvuti" name="author">
-	<title>Nvuti.gives 🎲 Нвути официальный сайт, играть бесплатно с раздачей</title>
-	<meta name="description"
-		content="Nvuti - Настоящий сайт Нвути ✔️. Все комиссии берем на себя, бонус при регистрации. Произведем промокод за 24 часа на любую систему с раздачей.">
+	<title>s</title>
 	<meta name="keywords" content="nvuti нвути инвути игра игры">
 	<link href="favicon.png" rel="shortcut icon" type="image/x-icon">
 	<link href="favicon.png" rel="apple-touch-icon">
@@ -17,17 +15,13 @@
 	<meta property="og:title" content="Nvuti.gives 🎲 Нвути официальный сайт, играть бесплатно с раздачей">
 	<meta property="og:description"
 		content="Nvuti - Настоящий сайт Нвути ✔️. Все комиссии берем на себя, бонус при регистрации. Произведем промокод за 24 часа на любую систему с раздачей.">
-	<meta property="og:image" content="https://nvuti.gives/img/nvuti.jpg">
-	<meta property="og:url" content="https://nvuti.gives">
+
 	<meta property="og:locale" content="ru_RU">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="nvuti.gives">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:label" content="Бесплатные бонусы Nvuti - Нвути">
-	<meta name="twitter:data" content="более 180 рублей при регистрации">
 	<meta name="twitter:card" content="favicon.png">
-	<meta name="application-name" content="Nvuti">
-	<link rel="canonical" href="index.htm">
+	<link rel="canonical" href="index.html">
 
 	<meta name="yandex-verification" content="e8e437ceb36bcf41">
 
@@ -136,424 +130,627 @@
 				<div class="card-head has-aside">
 					<h4 class="card-title">Режим игры</h4>
 				</div>
+				<span id="userBalance" myBalance="100">100</span>
+				<style>
+					.avatar_in_roll {
+						width: 60px;
+						height: 60px;
+						margin: 15px 1px;
+						background-color: #2b3035;
+						border-radius: 3px;
+						background-size: 100% 100%;
+					}
+				</style>
+
 				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
-					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dice-game">MAIN GAME</a>
+					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dice-game">Main game</a>
 					</li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#classic"
+							style="display:none">Classic </a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tower"
+							style="display:none">Tower</a></li>
 				</ul>
-				<div class="tab-pane fade active show" id="dice-game">
-					<div style="margin-top:30px">
+				<div class="tab-content" id="profile-details">
+					<div class="tab-pane fade active show" id="dice-game">
 						<div style="margin-top:30px">
+
 							<div class="row no-gutters height-100">
-								<div class="col-md-6">
+
+								<div class="col-md-6 ">
 									<div class="row">
 										<div class="col-12 mobileProfit">
 											<ul class="token-info-list text-center" style="padding-bottom:0px">
-												<li  style="font-size:64px;margin-top:-47px" id="BetProfitD">
-													1.11</li>
+												<li class="" style="font-size:64px;margin-top:-47px" id="BetProfitD">19
+												</li>
 												<span class="card-sub-title card-tyy">Возможный выигрыш</span>
 											</ul>
+
 										</div>
 										<div class="col-6">
 											<div class="input-item input-with-label">
 												<label for="full-name"
 													class="input-item-label text-center">Сумма</label>
-												<input autocomplete="off" id="BetSize1"onkeyup="validateBetSizeD(this);updateProfit()"
+												<input autocomplete="off" id="BetSize"
+													onkeyup="validateBetSizeD(this);updateProfit()"
 													class="input-bordered text-center" value="1">
-											</div>
+											</div><!-- .input-item -->
+
 											<div class="d-sm-flex justify-content-center" style="width:100%;margin:0">
-												<span  onclick="$('#BetPercent').val(Math.min(($('#BetPercent').val()*2).toFixed(2), 95));updateProfit()" class="badge badge-dim badge-md badge-light"
-													style="min-width:0px!important; padding: 4px 6px;">Удвоить</span>
-												<span  onclick="$('#BetPercent').val(Math.max(($('#BetPercent').val()/2).toFixed(2).replace(/.00/g, ''), 1));updateProfit()" class="badge badge-dim badge-md badge-light"
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="var x = ($('#BetSize').val()*2);$('#BetSize').val(parseFloat(x.toFixed(2)));updateProfit()">Удвоить</span>
+												<span
+													onclick="$('#BetSize').val(Math.max(($('#BetSize').val()/2).toFixed(2), 1));updateProfit()"
+													class="badge badge-dim badge-md badge-light"
 													style="min-width:0px!important; padding: 4px 6px;margin-left:5px">Половина</span>
 											</div>
+
 											<style>
 												.tll {
 													margin-left: -15px;
 													margin-top: 6px
 												}
 
-												@media (max-width:576px) {
+												@media (max-width: 576px) {
 													.tll {
 														margin-left: 19px;
 														margin-top: 6px
 													}
 												}
 											</style>
-											<div class="d-sm-flex justify-content-center tll">
-												<span onclick="$('#BetPercent').val(95);updateProfit()" class="badge badge-dim badge-md badge-light"
+											<div class="d-sm-flex justify-content-center tll" style="">
+												<span
+													onclick="var max = $('#userBalance').attr('myBalance');$('#BetSize').val(Math.max(max,1));updateProfit()"
+													class="badge badge-dim badge-md badge-light"
 													style="min-width:0px!important; padding: 4px 6px;">Макс</span>
-												<span  onclick="$('#BetPercent').val(1);updateProfit()" class="badge badge-dim badge-md badge-light"
-													style=" min-width:0px!important; padding: 4px 6px;margin-left:5px">Мин</span>
+												<span onclick="$('#BetSize').val(1);updateProfit()"
+													class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px">Мин</span>
 											</div>
 										</div>
 										<div class="col-6">
 											<div class="input-item input-with-label"><label for="full-name"
-													class="input-item-label text-center">Процент</label>
-												<input autocomplete="off" class="input-bordered text-center" type="text" id="BetPercent"  onkeyup="validateBetPercentD(this);updateProfit()"
-													name="full-name" value="90">
-											</div>
+													class="input-item-label text-center">Процент</label><input
+													autocomplete="off" class="input-bordered text-center" type="text"
+													name="full-name" value="90" id="BetPercent"
+													onkeyup="validateBetPercentD(this);updateProfit()"></div>
+											<!-- .input-item -->
 											<div class="d-sm-flex justify-content-center" style="width:100%;margin:0">
-												<span onclick="var x = ($('#BetSize').val()*2);$('#BetSize').val(parseFloat(x.toFixed(2)));updateProfit()" class="badge badge-dim badge-md badge-light"
-													style="min-width:0px!important; padding: 4px 6px;">Удвоить</span>
-												<span onclick="$('#BetSize').val(Math.max(($('#BetSize').val()/2).toFixed(2), 1));updateProfit()"	 class="badge badge-dim badge-md badge-light"
-													style="min-width:0px!important; padding: 4px 6px;margin-left:5px">Половина</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="$('#BetPercent').val(Math.min(($('#BetPercent').val()*2).toFixed(2), 95));updateProfit()">Удвоить</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px"
+													onclick="$('#BetPercent').val(Math.max(($('#BetPercent').val()/2).toFixed(2).replace(/.00/g, ''), 1));updateProfit()">Половина</span>
 											</div>
 											<div class="d-sm-flex justify-content-center tll">
-												<span onclick="var max = $('#userBalance').attr('myBalance');$('#BetSize').val(Math.max(max,1));updateProfit()" class="badge badge-dim badge-md badge-light"
-													style="min-width:0px!important; padding: 4px 6px;">Макс</span>
-												<span onclick="$('#BetSize').val(1);updateProfit()" class="badge badge-dim badge-md badge-light"
-													style=" min-width:0px!important; padding: 4px 6px;margin-left:5px">Мин</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="$('#BetPercent').val(95);updateProfit()">Макс</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px"
+													onclick="$('#BetPercent').val(1);updateProfit()">Мин</span>
 											</div>
 										</div>
+
 										<div class="col-12 text-center hbetf" style="margin-top:30px ">
+											<center style="font-size:12px">Hash игры:</center>
+											<span id="hashBet" hid="">
+												1e47698bc3d6904105c1d8f89b8a65f84cbb2ef7ef6fd7dd08dfd29b9c6e5e55a7225d9cd0fc3a2443a54a73d64f9b0fe0fe9c330ae5f345bcd858ed82182768
+
+
+											</span>
 										</div>
+
+
 									</div>
+									<script>
+										function validateBetPercentD(inp) {
+											if (inp.value > 95) {
+												inp.value = 95;
+											}
+
+
+											inp.value = inp.value.replace(/[,]/g, '.')
+												.replace(/[^\d,.]*/g, '')
+												.replace(/([,.])[,.]+/g, '$1')
+												.replace(/^[^\d]*(\d+([.,]\d{0,2})?).*$/g, '$1');
+										}
+
+									</script>
+									<script>
+										function validateBetSizeD(inp) {
+
+											inp.value = inp.value.replace(/[,]/g, '.')
+												.replace(/[^\d,.]*/g, '')
+												.replace(/([,.])[,.]+/g, '$1')
+												.replace(/^[^\d]*(\d+([.,]\d{0,2})?).*$/g, '$1');
+										}
+
+									</script>
+
+
 								</div>
 								<div class="col-md-1 "></div>
 								<div class="col-md-5 height-100">
 									<div class="token-info  ">
 										<div class="heded">
 											<ul class="token-info-list text-center desProfit">
-												<li id="BetProfitD"  style="font-size:64px;margin-top:-47px">1.11</li>
+												<li class="" style="font-size:64px;margin-top:-47px" id="BetProfit">19
+												</li>
 												<span class="card-sub-title card-tyy">Возможный выигрыш</span>
 											</ul>
 											<div class="row" style="margin-top:-7px">
 												<div class="col-6">
-													<span class="card-sub-title card-tyy1 text-center">0 -
-														<span>899999</span></span>
-													<div id="buttonMin"class="input-item input-with-label"><a  onclick="bet('betMin')"
-															style="color:#fff"
+													<span class="card-sub-title card-tyy1 text-center">0 - <span
+															id="MinRange"></span></span>
+													<div id="buttonMin" class="input-item input-with-label"><a
+															onclick="bet('betMin')" style="color:#fff"
 															class="btn btn-light btn-block">Меньше</a></div>
+													<!-- .input-item -->
 												</div>
 												<div class="col-6">
-													<span
-														class="card-sub-title card-tyy1 text-center"><span>100000</span>
-														- 999999</span>
-													<div onclick="bet('betMax')"
-														class="input-item input-with-label btn-block"><a
-															style="color:#fff"
+													<span class="card-sub-title card-tyy1 text-center"><span
+															id="MaxRange"></span> - 999999</span>
+													<div id="buttonMax"   class="input-item input-with-label btn-block"><a
+															style="color:#fff" onclick="bet('betMax')"
 															class="btn btn-light btn-block">Больше</a></div>
+													<!-- .input-item -->
 												</div>
 												<div class="col-12" style="margin-top:-20px">
 													<div style="background: #000; padding:0px 20px!important"
-														class="btn100  btn-block"></div>
+														class="btn  btn-block"></div>
+
+												</div>
+
+												<div class="col-12">
+													<center>
+														<div id="betLoad" class='cssload-loader'
+															style="background: none;display:none">
+															<div class='cssload-inner cssload-one'></div>
+															<div class='cssload-inner cssload-two'></div>
+															<div class='cssload-inner cssload-three'></div>
+														</div>
+													</center>
+													<div id="succes_bet"
+														style="background: linear-gradient(to right, #0ACB90, #2BDE6D);display:none;pointer-events:none;box-shadow: 0 5px 23px 0 rgba(0, 215, 126, 0.27);"
+														class="btn btn-success btn-block"></div>
+
+
 												</div>
 												<div class="col-12">
-
-
+													<div id="error_bet"
+														style="display:none;pointer-events:none; box-shadow: 0 5px 23px 0 rgba(255, 105, 114, 0.14);"
+														class="btn  btn-block bg-danger"></div>
 												</div>
+
+
+											</div>
+											<center id="checkBet" data-toggle="modal" data-target="#checkDiceModal"
+												style="text-align: center; margin-top:5px;display:none;-webkit-user-select: none;-moz-user-select: none; cursor:pointer"
+												href="">Проверить игру</center>
+											<div class="modal fade" id="checkDiceModal" tabindex="-1">
+												<div class="modal-dialog modal-dialog-md modal-dialog-centered">
+													<div class="modal-content"><a style="cursor:pointer"
+															class="modal-close" data-dismiss="modal"
+															aria-label="Close"><em class="ti ti-close"></em></a>
+														<div class="popup-body" id="modalDice">
+
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+
+
+
+											<script type="text/javascript">
+
+
+												var fakeBalance = 100;
+
+												function getRandomResult() {
+													// Генерируем случайный результат: true - победа, false - поражение
+													return Math.random() < 0.5;
+												}
+
+												function updateBalance(result, profit) {
+													if (result) {
+														fakeBalance += profit;
+														alert("Поздравляю! Вы выиграли " + profit.toFixed(2) + " очков!");
+													} else {
+														fakeBalance -= parseFloat($('#BetSize').val());
+														alert("Увы, вы проиграли. Попробуйте ещё раз!");
+													}
+
+													// Обновляем отображение баланса
+													$('#userBalance').html(fakeBalance);
+													$('#userBalance').attr('myBalance', fakeBalance);
+												}
+
+												function startGame(type) {
+													var betSize = parseFloat($('#BetSize').val());
+													var betPercent = parseFloat($('#BetPercent').val());
+
+													if (betSize > fakeBalance) {
+														alert('Недостаточно средств');
+														return;
+													}
+
+													if (betPercent > 95 || betPercent < 1) {
+														alert('% Шанс должен быть от 1 до 95');
+														return;
+													}
+
+													var result = getRandomResult();
+
+													// Заменяем следующий блок кода ajax-запроса
+													// на обработку результатов на клиенте
+													setTimeout(function () {
+														updateBalance(result, (100 / betPercent) * betSize);
+													}, 1000);
+												}
+
+											</script>
+
+											<script>
+												function updateProfit() {
+													$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+													$('#BetProfitD').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+													$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+													$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+												}
+
+												function sss() {
+													$('#hashBet').fadeOut('slow', function () {
+														$('#hashBet').fadeIn('slow', function () {
+
+														});
+													});
+												}
+												$('#BetPercent').keyup(function () {
+													$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+													$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+													$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+												});
+												$('#BetSize').keyup(function () {
+													$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+													$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+													$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+												});
+
+												function updateBalance(start, end) {
+
+													var el = document.getElementById('userBalance');
+
+													od = new Odometer({
+														el: el,
+														value: start
+													});
+
+													od.update(end);
+
+													var elMob = document.getElementById('userBalanceMob');
+
+													odelMob = new Odometer({
+														el: elMob,
+														value: start
+													});
+
+													odelMob.update(end);
+												}
+											</script>
+
+
+											</a>
+											<div class="toggle-class dropdown-content">
+												<ul class="dropdown-list">
+													<li><a href="#">30 days</a></li>
+													<li><a href="#">1 years</a></li>
+												</ul>
 											</div>
 										</div>
 									</div>
-								</div>
-								<script engine="text/javascript">
-									var o = w = d = 0; function startTime() { if (!o || Math.random() > .105) o = 1246 + Math.floor(Math.random() * 45); document.getElementById('oe').innerHTML = "" + o; setTimeout('startTime()', 3000); }
-									startTime();</script>
-								</a>
-								<div class="toggle-class dropdown-content">
-									<ul class="dropdown-list">
-										<li><a href="#">30 days</a></li>
-										<li><a href="#">1 years</a></li>
-									</ul>
+									<style>
+										.avatar_in_roll {
+											width: 60px;
+											height: 60px;
+											margin: 15px 1px;
+											background-color: #2b3035;
+											border-radius: 3px;
+											background-size: 100% 100%
+										}
+
+										.mmmob {
+											display: none
+										}
+
+										@media (max-width:991px) {
+											.des {
+												display: none
+											}
+
+											.mmmob {
+												display: block
+											}
+
+											.desktop-nav {
+												margin-top: -55px
+											}
+										}
+									</style>
+									<table class="table jghtt tnx-table table-responsive text-center"
+										style="margin-top:20px">
 								</div>
 							</div>
 						</div>
-						<style>
-							.avatar_in_roll {
-								width: 60px;
-								height: 60px;
-								margin: 15px 1px;
-								background-color: #2b3035;
-								border-radius: 3px;
-								background-size: 100% 100%
+					</div>
+					<style>
+						.d-no {
+							display: none;
+						}
+					</style>
+					<div class="main-content col-lg-12 d-no" id="inform">
+
+						<!--  <div class="d-flex justify-content-between justify-content-md-end align-items-center guttar-25px pdt-0-5x pdb-0-5x"> -->
+					</div>
+
+					<!-- ВЫПЛАТЫ -->
+
+					<!-- ВЫПЛАТЫ -->
+
+					<style>
+						.verified__icon_type_blue {
+							background-image: url(8lv2jw5kKzUtPncthXnvegaRTTo.svg)
+						}
+
+						.verified__icon {
+							position: relative;
+							top: -2px;
+							display: inline-block;
+							width: 17px;
+							height: 17px;
+							vertical-align: middle;
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: contain
+						}
+
+						.st-01 .screen-3 {
+							padding-bottom: 30px
+						}
+
+						.st-01 .screen-2,
+						.st-01 .screen-3 {
+							padding-left: 10px;
+							padding-right: 10px
+						}
+
+						.c-commentaries__item {
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-orient: vertical;
+							-webkit-box-direction: normal;
+							flex-direction: column;
+							padding: 10px 0;
+							border-bottom: 1px solid #5e6a7f
+						}
+
+						.c-commentaries__content {
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-orient: vertical;
+							-webkit-box-direction: normal;
+							flex-direction: column;
+							padding: 0 20px;
+							margin-bottom: 15px
+						}
+
+						.c-commentaries__send {
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-pack: end;
+							justify-content: flex-end;
+							padding: 0 20px
+						}
+
+						.o-block__title {
+							color: #5e6a7f;
+							font-size: 1.5rem;
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-pack: center;
+							justify-content: center;
+							-webkit-box-align: center;
+							align-items: center;
+							text-align: center;
+							width: 100%;
+							position: relative;
+							margin-bottom: 15px
+						}
+
+						.o-block__title {
+							color: #5e6a7f;
+							font-size: 1.5rem;
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-pack: center;
+							justify-content: center;
+							-webkit-box-align: center;
+							align-items: center;
+							text-align: center;
+							width: 100%;
+							position: relative;
+							margin-bottom: 15px
+						}
+
+						.c-commentaries__top {
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-orient: vertical;
+							-webkit-box-direction: normal;
+							flex-direction: column;
+							margin-bottom: 15px
+						}
+
+						.c-commentaries__name {
+							color: #fff;
+							font-size: 1.5rem
+						}
+
+						.c-commentaries__date {
+							color: #62ca5b
+						}
+
+						.c-commentaries__send .o-btn--green {
+							border-radius: 20px;
+							padding: 10px 45px
+						}
+
+						.o-btn--green {
+							display: -webkit-box;
+							display: flex;
+							-webkit-box-pack: center;
+							justify-content: center;
+							-webkit-box-align: center;
+							align-items: center;
+							padding: 10px 15px;
+							border-radius: 5px;
+							background: #74d860;
+							text-transform: uppercase;
+							text-decoration: none;
+							font-weight: 600;
+							color: #3e444d;
+							margin: 10px;
+							text-align: center;
+							min-width: -webkit-max-content;
+							min-width: -moz-max-content;
+							min-width: max-content;
+							max-width: -webkit-min-content;
+							max-width: -moz-min-content;
+							max-width: min-content
+						}
+
+						.systems_Systems__2Kgme {
+							display: flex;
+							width: calc(100% + 10px);
+							margin: 30px -10px 0;
+							padding-bottom: 5px
+						}
+
+						@media (max-width:900px) {
+							.systems_Systems__2Kgme {
+								margin: 5px -10px 0;
+								padding-top: 15px
 							}
 
-							.mmmob {
-								display: none
+							.systems_Systems__2Kgme .systems_Image__3f1fO img {
+								height: 20px
+							}
+						}
+
+						@media (max-width:500px) {
+							.systems_Systems__2Kgme .systems_Image__3f1fO img {
+								height: 18px
+							}
+						}
+
+						@media (max-width:460px) {
+							.systems_Systems__2Kgme .systems_Image__3f1fO {
+								background: transparent;
+								padding: 0;
+								margin: 0
 							}
 
-							@media (max-width:991px) {
-								.des {
-									display: none
-								}
-
-								.mmmob {
-									display: block
-								}
-
-								.desktop-nav {
-									margin-top: -55px
-								}
+							.systems_Systems__2Kgme .systems_Image__3f1fO img {
+								height: 18px
 							}
-						</style>
-						<table class="table jghtt tnx-table table-responsive text-center" style="margin-top:20px">
+						}
+
+						.systems_Image__3f1fO {
+							width: 9.09%;
+							height: 100%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background: #ffffff;
+							border-radius: 5px;
+							margin: 0 5px;
+							padding: 10px 0
+						}
+
+						.systems_Image__3f1fO img {
+							height: 24px
+						}
+
+						.footer_Container__257kS {
+							flex: none;
+							padding: 0 30px;
+							max-width: 1250px;
+							display: flex;
+							flex-wrap: wrap;
+							justify-content: center;
+							margin: 30px auto 0;
+							align-items: center
+						}
+
+						@media (max-width:1100px) {
+							.footer_Container__257kS {
+								margin: 30px auto 0
+							}
+						}
+
+
+
+						.media-body {
+							flex: 1;
+						}
+
+						.media {
+							display: flex;
+							align-items: flex-start;
+						}
+
+						.gr1 {
+							font-family: tahoma, geneva, sans-serif;
+						}
+
+						.gr2 {
+							color: #666666;
+						}
+
+						.chat_name {
+							font-weight: bold;
+						}
+
+						.d-none {
+							display: none !important;
+						}
+					</style>
+					<!-- INFO INFO INFO -->
+				</div>
+				<br>
+			</div>
+		</div>
+		<script src="script/jquery.bundle.js"></script>
+		<script src="script/script.js"></script>
+		<div class="footer-bar">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-md-12">
+						<ul class="footer-links">
+							<li><a href="terms.html">Пользовательское соглашение</a></li>
+							<a href="https://fropay.bid" style="display:none;"><img src="assets/logoff.png"
+									style="width: 70px;height: 20px;" alt="FROPAY"></a>
+							<li><a href="policy.html">Политика конфеденциальности</a></li>
+							<!--<li style="display:none"><a href="https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https://nvuti.gives" class="nav-link"><span>EN</span></a></li>-->
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-		<style>
-			.d-no {
-				display: none;
-			}
-		</style>
-		<div class="main-content col-lg-12 d-no" id="inform">
-
-			<!--  <div class="d-flex justify-content-between justify-content-md-end align-items-center guttar-25px pdt-0-5x pdb-0-5x"> -->
-		</div>
-
-		<!-- ВЫПЛАТЫ -->
-
-		<!-- ВЫПЛАТЫ -->
-
-		<style>
-			.verified__icon_type_blue {
-				background-image: url(8lv2jw5kKzUtPncthXnvegaRTTo.svg)
-			}
-
-			.verified__icon {
-				position: relative;
-				top: -2px;
-				display: inline-block;
-				width: 17px;
-				height: 17px;
-				vertical-align: middle;
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: contain
-			}
-
-			.st-01 .screen-3 {
-				padding-bottom: 30px
-			}
-
-			.st-01 .screen-2,
-			.st-01 .screen-3 {
-				padding-left: 10px;
-				padding-right: 10px
-			}
-
-			.c-commentaries__item {
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-orient: vertical;
-				-webkit-box-direction: normal;
-				flex-direction: column;
-				padding: 10px 0;
-				border-bottom: 1px solid #5e6a7f
-			}
-
-			.c-commentaries__content {
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-orient: vertical;
-				-webkit-box-direction: normal;
-				flex-direction: column;
-				padding: 0 20px;
-				margin-bottom: 15px
-			}
-
-			.c-commentaries__send {
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-pack: end;
-				justify-content: flex-end;
-				padding: 0 20px
-			}
-
-			.o-block__title {
-				color: #5e6a7f;
-				font-size: 1.5rem;
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-pack: center;
-				justify-content: center;
-				-webkit-box-align: center;
-				align-items: center;
-				text-align: center;
-				width: 100%;
-				position: relative;
-				margin-bottom: 15px
-			}
-
-			.o-block__title {
-				color: #5e6a7f;
-				font-size: 1.5rem;
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-pack: center;
-				justify-content: center;
-				-webkit-box-align: center;
-				align-items: center;
-				text-align: center;
-				width: 100%;
-				position: relative;
-				margin-bottom: 15px
-			}
-
-			.c-commentaries__top {
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-orient: vertical;
-				-webkit-box-direction: normal;
-				flex-direction: column;
-				margin-bottom: 15px
-			}
-
-			.c-commentaries__name {
-				color: #fff;
-				font-size: 1.5rem
-			}
-
-			.c-commentaries__date {
-				color: #62ca5b
-			}
-
-			.c-commentaries__send .o-btn--green {
-				border-radius: 20px;
-				padding: 10px 45px
-			}
-
-			.o-btn--green {
-				display: -webkit-box;
-				display: flex;
-				-webkit-box-pack: center;
-				justify-content: center;
-				-webkit-box-align: center;
-				align-items: center;
-				padding: 10px 15px;
-				border-radius: 5px;
-				background: #74d860;
-				text-transform: uppercase;
-				text-decoration: none;
-				font-weight: 600;
-				color: #3e444d;
-				margin: 10px;
-				text-align: center;
-				min-width: -webkit-max-content;
-				min-width: -moz-max-content;
-				min-width: max-content;
-				max-width: -webkit-min-content;
-				max-width: -moz-min-content;
-				max-width: min-content
-			}
-
-			.systems_Systems__2Kgme {
-				display: flex;
-				width: calc(100% + 10px);
-				margin: 30px -10px 0;
-				padding-bottom: 5px
-			}
-
-			@media (max-width:900px) {
-				.systems_Systems__2Kgme {
-					margin: 5px -10px 0;
-					padding-top: 15px
-				}
-
-				.systems_Systems__2Kgme .systems_Image__3f1fO img {
-					height: 20px
-				}
-			}
-
-			@media (max-width:500px) {
-				.systems_Systems__2Kgme .systems_Image__3f1fO img {
-					height: 18px
-				}
-			}
-
-			@media (max-width:460px) {
-				.systems_Systems__2Kgme .systems_Image__3f1fO {
-					background: transparent;
-					padding: 0;
-					margin: 0
-				}
-
-				.systems_Systems__2Kgme .systems_Image__3f1fO img {
-					height: 18px
-				}
-			}
-
-			.systems_Image__3f1fO {
-				width: 9.09%;
-				height: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background: #ffffff;
-				border-radius: 5px;
-				margin: 0 5px;
-				padding: 10px 0
-			}
-
-			.systems_Image__3f1fO img {
-				height: 24px
-			}
-
-			.footer_Container__257kS {
-				flex: none;
-				padding: 0 30px;
-				max-width: 1250px;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				margin: 30px auto 0;
-				align-items: center
-			}
-
-			@media (max-width:1100px) {
-				.footer_Container__257kS {
-					margin: 30px auto 0
-				}
-			}
-
-			
-
-			.media-body {
-				flex: 1;
-			}
-
-			.media {
-				display: flex;
-				align-items: flex-start;
-			}
-
-			.gr1 {
-				font-family: tahoma, geneva, sans-serif;
-			}
-
-			.gr2 {
-				color: #666666;
-			}
-
-			.chat_name {
-				font-weight: bold;
-			}
-
-			.d-none {
-				display: none !important;
-			}
-		</style>
-		<!-- INFO INFO INFO -->
-	</div>
-	<br> </div>
-	</div>
-	<script src="script/jquery.bundle.js"></script>
-	<script src="script/script.js"></script>
-	<div class="footer-bar">
-		<div class="container">
-			<div class="row align-items-center justify-content-center">
-				<div class="col-md-12">
-					<ul class="footer-links">
-						<li><a href="terms.html">Пользовательское соглашение</a></li>
-						<a href="https://fropay.bid" style="display:none;"><img src="assets/logoff.png"
-								style="width: 70px;height: 20px;" alt="FROPAY"></a>
-						<li><a href="policy.html">Политика конфеденциальности</a></li>
-						<!--<li style="display:none"><a href="https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https://nvuti.gives" class="nav-link"><span>EN</span></a></li>-->
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div><!--<script src="https://www.google.com/recaptcha/api.js?onload=renderRecaptchas&render=explicit" async defer></script>
+		</div><!--<script src="https://www.google.com/recaptcha/api.js?onload=renderRecaptchas&render=explicit" async defer></script>
 <script>
     window.renderRecaptchas = function() {
         var recaptchas = document.querySelectorAll('.g-recaptcha');
@@ -564,24 +761,24 @@
         }
     }
 </script>-->
-	<script>
-		historys();
-		function historys() {
-			if (navigator.onLine) {
-				$.ajax({
-					url: 'core.php',
-					timeout: 60000,
-					success: function (data) {
-						var obj = jQuery.parseJSON(data);
-						$("#response").prepend(obj.game);
-						$('#response').children().slice(15).remove();
-					}, error: function () { }
-				});
-			} else { }
-		}
-		setInterval('historys()', 15000);
-	</script>
-	<script src="ai.js"></script>
+		<script>
+			historys();
+			function historys() {
+				if (navigator.onLine) {
+					$.ajax({
+						url: 'core.php',
+						timeout: 60000,
+						success: function (data) {
+							var obj = jQuery.parseJSON(data);
+							$("#response").prepend(obj.game);
+							$('#response').children().slice(15).remove();
+						}, error: function () { }
+					});
+				} else { }
+			}
+			setInterval('historys()', 15000);
+		</script>
+		<script src="ai.js"></script>
 	</div>
 	</div>
 	</div>
