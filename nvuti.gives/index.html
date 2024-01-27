@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<head>
+	<html class="js" lang="ru">
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta content="Nvuti" name="author">
+	<title>Game</title>
+	<link href="favicon.png" rel="shortcut icon" type="image/x-icon">
+	<link href="favicon.png" rel="apple-touch-icon">
+
+	<meta property="og:description">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="nvuti.gives">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:card" content="favicon.png">
+	<link rel="canonical" href="index.html">
+	<script type="application/ld+json">
+
+</script>
+
+	<link rel="stylesheet" href="css/wnoty.css">
+	<link rel="stylesheet" href="css/fa.css">
+	<link rel="stylesheet" href="css/ti.css">
+	<script src="script/jquery-latest.min.js"></script>
+	<script src="script/odometr.js"></script>
+	<script src="ajax/f10.js"></script>
+	<link rel="stylesheet" href="css/vendor.bundle.css">
+	<link rel="stylesheet" href="css/stylep.css" id="layoutstyle">
+	<link rel="stylesheet" href="css/datatables.min.css">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-status-bar" content="#253992">
+	<meta name="msapplication-TileColor" content="#253992">
+	<meta name="theme-color" content="#253992">
+	<link rel="stylesheet" href="css/dopoln.css">
+
+	</html>
+</head>
+
+<body class="page-user no-touch">
+	<div class="topbar-wrap" style="padding-top: 0px;">
+		<div class="topbar is-sticky">
+			<div class="container">
+				<div class="">
+					<style>
+						.mmmob {
+							display: none;
+						}
+
+						@media (max-width: 991px) {
+							.des {
+								display: none;
+							}
+
+							.mmmob {
+								display: block;
+							}
+
+							.desktop-nav {
+								margin-top: -55px;
+							}
+						}
+					</style>
+
+
+							</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+		@media (min-width: 750px) {
+			.mmobilem {
+				display: none;
+			}
+		}
+	</style>
+	</div>
+	<div class="main-content col-lg-9" id="game">
+		<div class="content-area card">
+			<div class="card-innr">
+				<div class="card-head has-aside">
+					<h4 class="card-title">Режим игры</h4>
+				</div>
+                <span class="title_balanse">Баланс</span>
+				<span id="userBalance" myBalance="100">100</span>
+				<style>
+					.avatar_in_roll {
+						width: 60px;
+						height: 60px;
+						margin: 15px 1px;
+						background-color: #2b3035;
+						border-radius: 3px;
+						background-size: 100% 100%;
+					}
+				</style>
+
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#classic"
+							style="display:none">Classic </a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tower"
+							style="display:none">Tower</a></li>
+				</ul>
+				<div class="tab-content" id="profile-details">
+					<div class="tab-pane fade active show" id="dice-game">
+						<div style="margin-top:30px">
+
+							<div class="row no-gutters height-100">
+								<div class="col-md-6 ">
+
+									<div class="row">
+										<div class="col-12 mobileProfit">
+											<ul class="token-info-list text-center" style="padding-bottom:0px">
+												<li class="" style="font-size:64px;margin-top:-47px" id="BetProfitD">19
+												</li>
+												<span class="card-sub-title card-tyy">Возможный выигрыш</span>
+											</ul>
+
+										</div>
+										<div class="col-6">
+											<div class="input-item input-with-label">
+												<label for="full-name"
+													class="input-item-label text-center">Сумма</label>
+												<input autocomplete="off" id="BetSize"
+													onkeyup="validateBetSizeD(this);updateProfit()"
+													class="input-bordered text-center" value="1">
+											</div><!-- .input-item -->
+
+											<div class="d-sm-flex justify-content-center" style="width:100%;margin:0">
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="var x = ($('#BetSize').val()*2);$('#BetSize').val(parseFloat(x.toFixed(2)));updateProfit()">Удвоить</span>
+												<span
+													onclick="$('#BetSize').val(Math.max(($('#BetSize').val()/2).toFixed(2), 1));updateProfit()"
+													class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px">Половина</span>
+											</div>
+
+											<style>
+												.tll {
+													margin-left: -15px;
+													margin-top: 6px
+												}
+
+												@media (max-width: 576px) {
+													.tll {
+														margin-left: 19px;
+														margin-top: 6px
+													}
+												}
+											</style>
+											<div class="d-sm-flex justify-content-center tll">
+												<span
+													onclick="var max = $('#userBalance').attr('myBalance');$('#BetSize').val(Math.max(max,1));updateProfit()"
+													class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;">Макс</span>
+												<span onclick="$('#BetSize').val(1);updateProfit()"
+													class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px">Мин</span>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="input-item input-with-label"><label for="full-name"
+													class="input-item-label text-center">Процент</label><input
+													autocomplete="off" class="input-bordered text-center" type="text"
+													name="full-name" value="90" id="BetPercent"
+													onkeyup="validateBetPercentD(this);updateProfit()"></div>
+											<!-- .input-item -->
+											<div class="d-sm-flex justify-content-center" style="width:100%;margin:0">
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="$('#BetPercent').val(Math.min(($('#BetPercent').val()*2).toFixed(2), 95));updateProfit()">Удвоить</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px"
+													onclick="$('#BetPercent').val(Math.max(($('#BetPercent').val()/2).toFixed(2).replace(/.00/g, ''), 1));updateProfit()">Половина</span>
+											</div>
+											<div class="d-sm-flex justify-content-center tll">
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;"
+													onclick="$('#BetPercent').val(95);updateProfit()">Макс</span>
+												<span class="badge badge-dim badge-md badge-light"
+													style="min-width:0px!important; padding: 4px 6px;margin-left:5px"
+													onclick="$('#BetPercent').val(1);updateProfit()">Мин</span>
+											</div>
+										</div>
+
+									</div>
+									<script>
+										function validateBetPercentD(inp) {
+											if (inp.value > 95) {
+												inp.value = 95;
+											}
+
+
+											inp.value = inp.value.replace(/[,]/g, '.')
+												.replace(/[^\d,.]*/g, '')
+												.replace(/([,.])[,.]+/g, '$1')
+												.replace(/^[^\d]*(\d+([.,]\d{0,2})?).*$/g, '$1');
+										}
+
+									</script>
+									<script>
+										function validateBetSizeD(inp) {
+
+											inp.value = inp.value.replace(/[,]/g, '.')
+												.replace(/[^\d,.]*/g, '')
+												.replace(/([,.])[,.]+/g, '$1')
+												.replace(/^[^\d]*(\d+([.,]\d{0,2})?).*$/g, '$1');
+										}
+
+									</script>
+
+								</div>
+								<div class="col-md-1 "></div>
+								<div class="col-md-5 height-100">
+									<div class="token-info  ">
+										<div class="heded">
+											<ul class="token-info-list text-center desProfit">
+												<li class="" style="font-size:64px;margin-top:-47px" id="BetProfit">19
+												</li>
+												<span class="card-sub-title card-tyy">Возможный выигрыш</span>
+											</ul>
+											<div class="row" style="margin-top:-7px">
+												<div class="col-6">
+													<span class="card-sub-title card-tyy1 text-center">0 - <span
+															id="MinRange"></span></span>
+													<div id="buttonMin" class="input-item input-with-label"><a
+															style="color:#fff" class="btn btn-light btn-block"
+															onclick="startGame('max')">Меньше</a></div>
+													<!-- .input-item -->
+												</div>
+												<div class="col-6">
+													<span class="card-sub-title card-tyy1 text-center"><span
+															id="MaxRange"></span> - 999999</span>
+													<div id="buttonMax" class="input-item input-with-label btn-block"><a
+															style="color:#fff" class="btn btn-light btn-block"
+															onclick="startGame('max')">Больше</a></div>
+													<!-- .input-item -->
+												</div>
+												<div class="col-12" style="margin-top:-20px">
+
+												</div>
+
+												<script type="text/javascript">
+													var fakeBalance = 100;
+													function getRandomResult() {
+														// Генерируем случайный результат: true - победа, false - поражение
+														return Math.random() < 0.5;
+													}
+
+													function updateBalance(result, profit) {
+														if (result) {
+															fakeBalance += profit;
+															alert("Поздравляю! Вы выиграли " + profit.toFixed(2) + " очков!");
+														} else {
+															fakeBalance -= parseFloat($('#BetSize').val());
+															alert("Увы, вы проиграли. Попробуйте ещё раз!");
+														}
+
+														// Обновляем отображение баланса
+														$('#userBalance').html(fakeBalance);
+														$('#userBalance').attr('myBalance', fakeBalance);
+													}
+
+													function startGame(type) {
+														var betSize = parseFloat($('#BetSize').val());
+														var betPercent = parseFloat($('#BetPercent').val());
+
+														if (betSize > fakeBalance) {
+															alert('Недостаточно средств');
+															return;
+														}
+
+														if (betPercent > 95 || betPercent < 1) {
+															alert('% Шанс должен быть от 1 до 95');
+															return;
+														}
+
+														var result = getRandomResult();
+
+														// Adjust logic based on 'type'
+														var multiplier = (type === 'max') ? (100 / betPercent) : -(betSize);
+
+														// Replace the next block of code with handling result and updating balance
+														setTimeout(function () {
+															if (result) {
+																fakeBalance += multiplier * betSize;
+																alert("Поздравляю! Вы выиграли " + (multiplier * betSize).toFixed(2) + " очков!");
+															} else {
+																fakeBalance -= betSize;
+																alert("Увы, вы проиграли. Попробуйте ещё раз!");
+															}
+
+															// Update balance display
+															$('#userBalance').html(fakeBalance.toFixed(2));
+															$('#userBalance').attr('myBalance', fakeBalance.toFixed(2));
+														}, 1000);
+													}
+
+												</script>
+
+												<script>
+													function updateProfit() {
+														$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+														$('#BetProfitD').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+														$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+														$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+													}
+
+													function sss() {
+														$('#hashBet').fadeOut('slow', function () {
+															$('#hashBet').fadeIn('slow', function () {
+
+															});
+														});
+													}
+													$('#BetPercent').keyup(function () {
+														$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+														$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+														$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+													});
+													$('#BetSize').keyup(function () {
+														$('#MinRange').html(Math.floor(($('#BetPercent').val() / 100) * 999999));
+														$('#MaxRange').html(999999 - Math.floor(($('#BetPercent').val() / 100) * 999999));
+														$('#BetProfit').html(((100 / $('#BetPercent').val()) * $('#BetSize').val()).toFixed(2));
+													});
+
+													function updateBalance(start, end) {
+
+														var el = document.getElementById('userBalance');
+
+														od = new Odometer({
+															el: el,
+															value: start
+														});
+
+														od.update(end);
+
+														var elMob = document.getElementById('userBalanceMob');
+
+														odelMob = new Odometer({
+															el: elMob,
+															value: start
+														});
+
+														odelMob.update(end);
+													}
+												</script>
+
+
+												</a>
+												<div class="toggle-class dropdown-content">
+													<ul class="dropdown-list">
+														<li><a href="#">30 days</a></li>
+														<li><a href="#">1 years</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<style>
+											.avatar_in_roll {
+												width: 60px;
+												height: 60px;
+												margin: 15px 1px;
+												background-color: #2b3035;
+												border-radius: 3px;
+												background-size: 100% 100%
+											}
+
+											.mmmob {
+												display: none
+											}
+
+											@media (max-width:991px) {
+												.des {
+													display: none
+												}
+
+												.mmmob {
+													display: block
+												}
+
+												.desktop-nav {
+													margin-top: -55px
+												}
+											}
+										</style>
+										<table class="table jghtt tnx-table table-responsive text-center"
+											style="margin-top:20px">
+									</div>
+								</div>
+							</div>
+						</div>
+						<style>
+							.d-no {
+								display: none;
+							}
+						</style>
+						<div class="main-content col-lg-12 d-no" id="inform">
+
+							<!--  <div class="d-flex justify-content-between justify-content-md-end align-items-center guttar-25px pdt-0-5x pdb-0-5x"> -->
+						</div>
+
+						<!-- ВЫПЛАТЫ -->
+
+						<!-- ВЫПЛАТЫ -->
+
+						<style>
+							.verified__icon_type_blue {
+								background-image: url(8lv2jw5kKzUtPncthXnvegaRTTo.svg)
+							}
+
+							.verified__icon {
+								position: relative;
+								top: -2px;
+								display: inline-block;
+								width: 17px;
+								height: 17px;
+								vertical-align: middle;
+								background-repeat: no-repeat;
+								background-position: center;
+								background-size: contain
+							}
+
+							.st-01 .screen-3 {
+								padding-bottom: 30px
+							}
+
+							.st-01 .screen-2,
+							.st-01 .screen-3 {
+								padding-left: 10px;
+								padding-right: 10px
+							}
+
+							.c-commentaries__item {
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-orient: vertical;
+								-webkit-box-direction: normal;
+								flex-direction: column;
+								padding: 10px 0;
+								border-bottom: 1px solid #5e6a7f
+							}
+
+							.c-commentaries__content {
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-orient: vertical;
+								-webkit-box-direction: normal;
+								flex-direction: column;
+								padding: 0 20px;
+								margin-bottom: 15px
+							}
+
+							.c-commentaries__send {
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-pack: end;
+								justify-content: flex-end;
+								padding: 0 20px
+							}
+
+							.o-block__title {
+								color: #5e6a7f;
+								font-size: 1.5rem;
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-pack: center;
+								justify-content: center;
+								-webkit-box-align: center;
+								align-items: center;
+								text-align: center;
+								width: 100%;
+								position: relative;
+								margin-bottom: 15px
+							}
+
+							.o-block__title {
+								color: #5e6a7f;
+								font-size: 1.5rem;
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-pack: center;
+								justify-content: center;
+								-webkit-box-align: center;
+								align-items: center;
+								text-align: center;
+								width: 100%;
+								position: relative;
+								margin-bottom: 15px
+							}
+
+							.c-commentaries__top {
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-orient: vertical;
+								-webkit-box-direction: normal;
+								flex-direction: column;
+								margin-bottom: 15px
+							}
+
+							.c-commentaries__name {
+								color: #fff;
+								font-size: 1.5rem
+							}
+
+							.c-commentaries__date {
+								color: #62ca5b
+							}
+
+							.c-commentaries__send .o-btn--green {
+								border-radius: 20px;
+								padding: 10px 45px
+							}
+
+							.o-btn--green {
+								display: -webkit-box;
+								display: flex;
+								-webkit-box-pack: center;
+								justify-content: center;
+								-webkit-box-align: center;
+								align-items: center;
+								padding: 10px 15px;
+								border-radius: 5px;
+								background: #74d860;
+								text-transform: uppercase;
+								text-decoration: none;
+								font-weight: 600;
+								color: #3e444d;
+								margin: 10px;
+								text-align: center;
+								min-width: -webkit-max-content;
+								min-width: -moz-max-content;
+								min-width: max-content;
+								max-width: -webkit-min-content;
+								max-width: -moz-min-content;
+								max-width: min-content
+							}
+
+							.systems_Systems__2Kgme {
+								display: flex;
+								width: calc(100% + 10px);
+								margin: 30px -10px 0;
+								padding-bottom: 5px
+							}
+
+							@media (max-width:900px) {
+								.systems_Systems__2Kgme {
+									margin: 5px -10px 0;
+									padding-top: 15px
+								}
+
+								.systems_Systems__2Kgme .systems_Image__3f1fO img {
+									height: 20px
+								}
+							}
+
+							@media (max-width:500px) {
+								.systems_Systems__2Kgme .systems_Image__3f1fO img {
+									height: 18px
+								}
+							}
+
+							@media (max-width:460px) {
+								.systems_Systems__2Kgme .systems_Image__3f1fO {
+									background: transparent;
+									padding: 0;
+									margin: 0
+								}
+
+								.systems_Systems__2Kgme .systems_Image__3f1fO img {
+									height: 18px
+								}
+							}
+
+							.systems_Image__3f1fO {
+								width: 9.09%;
+								height: 100%;
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								background: #ffffff;
+								border-radius: 5px;
+								margin: 0 5px;
+								padding: 10px 0
+							}
+
+							.systems_Image__3f1fO img {
+								height: 24px
+							}
+
+							.footer_Container__257kS {
+								flex: none;
+								padding: 0 30px;
+								max-width: 1250px;
+								display: flex;
+								flex-wrap: wrap;
+								justify-content: center;
+								margin: 30px auto 0;
+								align-items: center
+							}
+
+							@media (max-width:1100px) {
+								.footer_Container__257kS {
+									margin: 30px auto 0
+								}
+							}
+
+
+
+							.media-body {
+								flex: 1;
+							}
+
+							.media {
+								display: flex;
+								align-items: flex-start;
+							}
+
+							.gr1 {
+								font-family: tahoma, geneva, sans-serif;
+							}
+
+							.gr2 {
+								color: #666666;
+							}
+
+							.chat_name {
+								font-weight: bold;
+							}
+
+							.d-none {
+								display: none !important;
+							}
+						</style>
+						<!-- INFO INFO INFO -->
+					</div>
+					<br>
+				</div>
+			</div>
+			<script src="script/jquery.bundle.js"></script>
+			<script src="script/script.js"></script>
+
+
+			<script src="ai.js"></script>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
